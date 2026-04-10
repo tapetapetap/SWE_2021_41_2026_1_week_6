@@ -1,0 +1,10 @@
+#!/bin/bash
+
+for filepath in files/*; do
+    if [ -f "$filepath" ]; then
+        filename=$(basename "$filepath")
+        first_char="${filename:0:1}"
+        target_folder=$(echo "$first_char" | tr '[:upper:]' '[:lower:]')
+        mv "$filepath" "$target_folder/"
+    fi
+done
